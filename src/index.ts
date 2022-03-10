@@ -27,7 +27,7 @@ interface StringLoaderOptions {
 
 /**Rollup 文本文件加载插件 */
 function stringLoader(opts: StringLoaderOptions): Plugin {
-    if (!opts.include) {
+    if (isUndefined(opts.include)) {
         opts.include = "**/*.html";
     }
     const filter = createFilter(opts.include, opts.exclude);
